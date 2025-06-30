@@ -1,0 +1,100 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background: linear-gradient(to right, #74ebd5, #acb6e5);
+  padding: 30px;
+  color: #333;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeDown 0.8s ease-out;
+}
+
+.board-container {
+  position: relative;
+  width: 310px;
+  margin: auto;
+  animation: fadeUp 0.8s ease-out;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+  position: relative;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  background: #fff;
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  user-select: none;
+  border-radius: 10px;
+  transition: transform 0.2s ease, background-color 0.3s ease;
+  animation: popIn 0.3s ease forwards;
+}
+
+.cell:hover {
+  background-color: #f0f8ff;
+  transform: scale(1.05);
+}
+
+.win-line {
+  position: absolute;
+  height: 5px;
+  background: #ff3b3b;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 0.5s ease, top 0.5s ease, left 0.5s ease, rotate 0.5s ease;
+  z-index: 5;
+}
+
+#status {
+  margin: 20px 0;
+  font-size: 1.3rem;
+  animation: fadeIn 0.6s ease-out;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #555;
+}
+
+/* Animations */
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
